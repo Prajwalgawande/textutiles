@@ -34,18 +34,18 @@ export default function TextForm(props) {
         navigator.clipboard.writeText(text.value);
     }
     
-    const [text,setText] = useState('Enter text here');
+    const [text,setText] = useState('');
     return(
      <>
      <div className='container'style={ { color: props.mode=== 'dark'?'white':'black'}}>   
      <h1>{props.heading} </h1>
 <div className="mb-3">
-    <textarea className="form-control"  value ={text} onChange={handleOnChange} style={{backgroundColor: props.mode=== 'dark'?'grey':'white', color: props.mode=== 'dark'?'white':'black'}} id="myBox" rows="8" ></textarea>
-    <button className="bnt btn-primary my-3 mx-2" onClick={handleUpClick}>Convert to Uppercase</button>
-    <button className="bnt btn-primary my-3 mx-2" onClick={handleLoClick}>Convert to Lowercase</button>
-    <button className="bnt btn-primary my-3 mx-2" onClick={handleClearClick}>Clear text</button>
-    <button className="bnt btn-primary my-3 mx-2" onClick={handleReverseStrClick}>Reverse the text</button>
-    <button className="bnt btn-primary my-3 mx-2" onClick={handleCopy}>Copy text</button>
+    <textarea className="form-control"  value ={text} placeholder='Please enter a text here' onChange={handleOnChange} style={{backgroundColor: props.mode=== 'dark'?'grey':'white', color: props.mode=== 'dark'?'white':'black'}} id="myBox" rows="8" ></textarea>
+    <button disabled={text.length===0} className="bnt btn-primary my-3 mx-2" onClick={handleUpClick}>Convert to Uppercase</button>
+    <button disabled={text.length===0} className="bnt btn-primary my-3 mx-2" onClick={handleLoClick}>Convert to Lowercase</button>
+    <button disabled={text.length===0} className="bnt btn-primary my-3 mx-2" onClick={handleClearClick}>Clear text</button>
+    <button disabled={text.length===0} className="bnt btn-primary my-3 mx-2" onClick={handleReverseStrClick}>Reverse the text</button>
+    <button disabled={text.length===0} className="bnt btn-primary my-3 mx-2" onClick={handleCopy}>Copy text</button>
     
     </div>
 </div>
